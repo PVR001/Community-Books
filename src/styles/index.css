@@ -365,6 +365,10 @@ label {
 
 .media-row-title button {
 	padding:0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  min-width:35px;
 }
 
 .media-row-title i.fa-close {
