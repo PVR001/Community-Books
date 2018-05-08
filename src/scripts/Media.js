@@ -83,7 +83,7 @@ export class MediaRow extends Component {
 export class MediaRowHeader extends Component {
   	constructor(props) {
     	super(props);
-    	this.state = {search:true};
+    	this.state = {search:false};
     	this.toggleSearch = this.toggleSearch.bind(this);
     	this.updateSearch = this.updateSearch.bind(this);
   	}
