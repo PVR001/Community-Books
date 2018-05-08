@@ -355,7 +355,11 @@ label {
     text-align: left;
     padding: 0 15px;
     font-size: 25px;
-    display:flex;
+    display: -webkit-box; 
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex; 
+    display: flex;
     max-height:40px;
     color:#0582f0;
     color:#0468BF;
