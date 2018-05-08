@@ -104,7 +104,7 @@ class App extends Component {
   render() {
     return (
       <div className="App" onClick={this.props.appClick}>
-        <Main data={this.state.appData} user={this.state.loggedUser} />
+        <Route render={(props) => <Main {...props} data={this.state.appData} user={this.state.loggedUser}/>}/>
         <Nav />
       </div>
     );
@@ -114,36 +114,36 @@ class App extends Component {
 class Main extends Component {
   previousLocation = this.props.location;
 
-  // componentWillUpdate(nextProps) {
-  //   const { location } = this.props;
-  //   // set previousLocation if props.location is not modal
-  //   if (
-  //     nextProps.history.action !== "POP" &&
-  //     (!location.state || !location.state.modal)
-  //   ) {
-  //     this.previousLocation = this.props.location;
-  //   }
-  // }
+  componentWillUpdate(nextProps) {
+    const { location } = this.props;
+    // set previousLocation if props.location is not modal
+    if (
+      nextProps.history.action !== "POP" &&
+      (!location.state || !location.state.modal)
+    ) {
+      this.previousLocation = this.props.location;
+    }
+  }
 
   render(){
-    // const { location } = this.props;
-    // console.log(location);
-    // const isModal = !!(
-    //   location.state &&
-    //   location.state.modal &&
-    //   this.previousLocation !== location
-    // ); // not initial render
+    const { location } = this.props;
+    console.log(location);
+    const isModal = !!(
+      location.state &&
+      location.state.modal &&
+      this.previousLocation !== location
+    ); // not initial render
 
     return(
       <div>
-        <Switch>
+        <Switch location={isModal ? this.previousLocation : location}>
           <Route path="/home" render={(props) => <Home data={this.props.data} user={this.props.user} />} />
           <Route path="/books" render={(props) => <Books data={this.props.data} user={this.props.user} />}/>
           <Route path="/communities" render={(props) => <Communities data={this.props.data} user={this.props.user} />}/>
           <Route path="/profile" render={(props) => <Profile data={this.props.data} user={this.props.user} />}/>
           <Route path="/" render={() => <Redirect to="/home"/>} />
         </Switch>
-        {/*isModal ? <Route path="/notifications" render={(props) => <Notifications user={this.props.user} />} /> : null*/}
+        {isModal ? <Route path="/notifications" render={(props) => <Notifications {...props} user={this.props.user} />} /> : null}
       </div>
     );
   }
