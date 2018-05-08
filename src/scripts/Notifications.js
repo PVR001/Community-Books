@@ -19,9 +19,9 @@ class Notifications extends Component {
 			    		<li></li>
 			    		<li></li>
 			    		<li></li>
-			    		  <li><i class="fa-li fa fa-book"></i><a>New Book Request</a></li>
-					  	<li><i class="fa-li fa fa-users"></i><a>Community Join Request Accepted</a></li>
-					  	<li><i class="fa-li fa fa-flash"></i><a>Waitlisted Book Now Available!</a></li>
+			    		  <li><i className="fa-li fa fa-book"></i><a>New Book Request</a></li>
+					  	<li><i className="fa-li fa fa-users"></i><a>Community Join Request Accepted</a></li>
+					  	<li><i className="fa-li fa fa-flash"></i><a>Waitlisted Book Now Available!</a></li>
 			    	</ul>
 			    </Modal.Body>
 			  </Modal.Dialog>
