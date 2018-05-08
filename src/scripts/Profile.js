@@ -14,7 +14,7 @@ class Profile extends Component {
 		let user = this.props.user;
 		let data = this.props.data;
 
-		let hLeft = <Link className="btn" to="/notifications"><i className="fa fa-lg fa-bell"></i></Link>;
+		let hLeft = <Link className="btn" to={{ pathname: "/notifications", state: { modal: true } }} ><i className="fa fa-lg fa-bell"></i></Link>;
 		let hRight = <a id="logout-btn" className="btn"><i onClick={this.logout} className="fa fa-lg fa-sign-out"></i></a>;
 
 		function setStatus(book){

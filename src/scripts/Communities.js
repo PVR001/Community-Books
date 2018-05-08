@@ -19,7 +19,7 @@ class Communities extends Component {
 
 class AllCommunities extends Component {
 	render() {
-		let hLeft = <Link className="btn" to="/notifications"><i className="fa fa-lg fa-bell"></i></Link>;
+		let hLeft = <Link className="btn" to={{ pathname: "/notifications", state: { modal: true } }} ><i className="fa fa-lg fa-bell"></i></Link>;
 		let hRight = <Link className="btn" to="/addcommunity"><i className="fa fa-lg fa-plus"></i></Link>;
 
 	    return (
